@@ -1,0 +1,41 @@
+#MAKE SURE YOUR CODE COMPILES WITH THESE FLAGS!
+#WARNINGS = NO COMPILE = ZERO!
+#also can add to the list of flags if you so desire. At your own risk. 
+CFLAGS = -g -Wall -Werror
+all: Gauntlet
+
+#the above "CFLAGS" are the flags (-g -Wall -Werror) that are compiled with and called below.
+#In addition, the above all: Gauntlet refers to the "dummy target" of Gauntlet which is simply
+#executable for all the other .o files which are linked and compiled into an executable, Gauntlet.
+
+#I added the boss.o,parse.o, and fight.o to the makefile to get it to load. So parse.c,
+#io.c, heroes.c, game.c, fight.c, and boss.c all have #include game.h. Thus, for them to be 
+#assembled and linked in the make file to their respective .o files, each .o file needs to be 
+#included into the makefile. Basically each .c file is assembled with game.h to 
+#form the .o files. Then, the .o files are linked together and form the executable file. 
+
+Gauntlet: game.o shop.o heroes.o io.o boss.o parse.o fight.o
+	gcc $^ -g -o Gauntlet
+	
+# here I haved the target(Gauntlet) and the source files for it in the 
+# form of the respective .o files. The next line, gcc $^ -g -o Gauntlet, 
+# is for the compiler to compile .o files if their dependencies, the .c files, are changed. The compiler
+# knows if any .c files are changed and will recompile each .o file as needed. Note the $^ just refers to
+# the prerequisites of the dummy target, Gauntlet, namely the .o files. 
+
+%.o: %.c game.h
+	gcc $< -c $(CFLAGS) -o $@
+
+#The pattern "%o.: %.c game.h" basically means that for any .o file to be made, it will need its respecitve 
+# .c file and the game.h file which is included in each .c file. The next line calls the compiler, gcc, to
+# use all the prerequisites represented by the "$<" and -c to compile the .c files with appropriate flags
+# Then, the -o is for the .o files which are compiled from the .c and .h files. 
+# Note the $@ is just a placeholder to the target, Gauntlet. 
+
+
+clean:
+	rm -f *.o Gauntlet
+	
+# the clean portion is to clean the directory of the object(.o) files used to link
+# into the executable file ./Gauntlet. Basically rm is to remove the files, the -f 
+# is to refer to the file name and *.o refers to all object files which  will be cleaned. 

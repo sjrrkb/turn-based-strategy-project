@@ -1,0 +1,9 @@
+Brennor | 200 | 5 | 180 | 7
+Calen | 1000 | 10 | 80 | 5
+Roc | 5000 | 50 | 25 | 1
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 

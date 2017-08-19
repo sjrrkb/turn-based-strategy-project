@@ -1,0 +1,9 @@
+Brennor | 200 | 5 | 180 | 7
+Steve | 500 | 10 | 50 | 13
+Vayne | 750 | 20 | 125 | 4
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
+NULL | 0 | 0 | NULL 
